@@ -35,7 +35,7 @@ $(function() {
           for(var i = 0; i<allFeeds.length; i++) {
             expect(allFeeds[i].url).toBeDefined();
             expect(allFeeds[i].url).not.toBe(0);
-          };
+          }
         });
 
         /* TODO: Write a test that loops through each feed
@@ -46,7 +46,7 @@ $(function() {
            for(var i = 0; i<allFeeds.length; i++) {
              expect(allFeeds[i].name).toBeDefined();
              expect(allFeeds[i].name).not.toBe(0);
-           };
+           }
          });
     });
 
