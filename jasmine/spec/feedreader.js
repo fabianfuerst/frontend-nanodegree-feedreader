@@ -92,17 +92,21 @@ $(function() {
         /* Test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
-         var feedText = '';
+         var feedOne = '';
+         var feedTwo = '';
          beforeEach(function(done){
-           loadFeed(0);
-           feedText = $('.entry').text();
-           loadFeed(1);
-           done();
+           loadFeed(0, function(){
+             feedOne = $('.entry').html();
+             done();
+           });
+           loadFeed(1, function (){
+             feedTwo = $('.entry').html();
+             done();
+           });
          });
 
-         it('works', function(done) {
-           expect($('.entry')).not.toBe(feedText);
-           done();
+         it('works', function() {
+           expect(feedOne).not.toBe(feedTwo);
          });
     });
 }());
