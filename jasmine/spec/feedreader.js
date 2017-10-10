@@ -70,6 +70,7 @@ $(function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
           });
     });
+
     /* This test suite ensures that the initial entries are added */
     describe('Initial Entries', function(){
         /* Test that ensures when the loadFeed
@@ -77,13 +78,13 @@ $(function() {
          * a single .entry element within the .feed container.
           */
          beforeEach(function(done){
-           loadFeed(0);
-           done();
+           loadFeed(0, function(){
+             done();
+           });
          });
 
-         it('are added', function(done) {
-           expect($('.feed').children()).not.toBe('');
-           done();
+         it('are added', function() {
+           expect($('.feed .entry').length).toBeGreaterThan(0);
          });
     });
     /* This test suite ensures that when a new feed is loaded the content actually changes */
