@@ -57,17 +57,17 @@ $(function() {
          * hidden by default.
          */
          it('should be hidden by default', function(){
-           expect(document.getElementsByClassName("menu-hidden")).not.toBe(0);
+           expect($('body').hasClass("menu-hidden")).toBe(true);
          });
 
          /* Test that ensures the menu changes
           * visibility when the menu icon is clicked.
           */
           it('should change visibility when clicked', function(){
-            $('body').toggleClass('menu-hidden');
-            expect($('body').attr('class')).toBe('');
-            $('body').toggleClass('menu-hidden');
-            expect($('body').attr('class')).toBeDefined();
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(false);
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(true);
           });
     });
     /* This test suite ensures that the initial entries are added */
