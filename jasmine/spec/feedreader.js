@@ -96,17 +96,15 @@ $(function() {
          var feedTwo = '';
          beforeEach(function(done){
            loadFeed(0, function(){
-             feedOne = $('.entry').html();
-             done();
-           });
-           loadFeed(1, function (){
-             feedTwo = $('.entry').html();
-             done();
+             feedOne = $('.feed').html();
+             loadFeed(1, function() {
+               done();
+             });
            });
          });
 
          it('works', function() {
-           expect(feedOne).not.toBe(feedTwo);
+           expect(feedOne).not.toBe($('.feed').html());
          });
-    });
+       });
 }());
